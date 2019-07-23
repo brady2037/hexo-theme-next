@@ -593,7 +593,7 @@ calendar:
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: brady2037
   count: true
   lazyload: false
