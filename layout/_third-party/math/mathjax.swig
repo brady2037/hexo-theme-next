@@ -1,7 +1,7 @@
 <script type="text/x-mathjax-config">
-  {% if theme.math.mathjax.mhchem %}
+  {%- if theme.math.mathjax.mhchem %}
     MathJax.Ajax.config.path['mhchem'] = '{{ theme.math.mathjax.mhchem }}';
-  {% endif %}
+  {%- endif %}
 
   MathJax.Hub.Config({
     tex2jax: {
@@ -10,9 +10,9 @@
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
     TeX: {
-      {% if theme.math.mathjax.mhchem %}
+      {%- if theme.math.mathjax.mhchem %}
         extensions: ['[mhchem]/mhchem.js'],
-      {% endif %}
+      {%- endif %}
       equationNumbers: {
         autoNumber: 'AMS'
       }
@@ -44,4 +44,8 @@
     }
   });
 </script>
-<script src="{{ theme.math.mathjax.cdn }}"></script>
+<script>
+  NexT.utils.getScript('{{ theme.math.mathjax.cdn }}', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
